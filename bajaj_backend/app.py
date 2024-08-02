@@ -8,7 +8,7 @@ USER_ID = "your_name"
 EMAIL = "cllg@email.id"
 ROLL_NUMBER = "RA_number"
 
-@app_route('/bfhl', methods = ['POST'])
+@app.route('/bfhl', methods = ['POST'])
 def process_data():
     data = request.json.get('data', [])
 
