@@ -19,4 +19,13 @@ def process_data():
     alphabets = [item for item in data if item.isalpha() and len(item) == 1]
     highest_alphabet  = [max(alphabets, key=str.lower())] if alphabets else []
 
-    
+    return jsonify({
+        "is_success" : True,
+        "user_id" : USER_ID,
+        "email" : EMAIL,
+        "roll_number" : ROLL_NUMBER,
+        "numbers" : numbers,
+        "alphabets" : alphabets,
+        "highest_alphabet" : highest_alphabet
+    })
+
