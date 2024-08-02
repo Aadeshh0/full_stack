@@ -29,3 +29,9 @@ def process_data():
         "highest_alphabet" : highest_alphabet
     })
 
+@app.route('/bfhl', methods=['GET'])
+def get_operation_code():
+    return jsonify({"operation code":1})
+
+if __name__ == '__main__':
+    app.run(debug=True)
