@@ -43,4 +43,49 @@ function App() {
     return filtered;
   };
 
- 
+  return (
+    <div className="App">
+      <h1>Bajaj Finserv Health Dev Challenge</h1>
+      <form onSubmit={handleSubmit}>
+        <textarea
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          placeholder='Enter JSON here. Example: { "data": ["A","C","z"] }'
+        />
+        <button type="submit">Submit</button>
+      </form>
+      {error && <p className="error">{error}</p>}
+      {response && (
+        <div>
+          <h2>Filter Response:</h2>
+          <div>
+            <label>
+              <input
+                type="checkbox"
+                checked={selectedOptions.includes('Alphabets')}
+                onChange={() => handleOptionChange('Alphabets')}
+              /> Alphabets
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                checked={selectedOptions.includes('Numbers')}
+                onChange={() => handleOptionChange('Numbers')}
+              /> Numbers
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                checked={selectedOptions.includes('Highest alphabet')}
+                onChange={() => handleOptionChange('Highest alphabet')}
+              /> Highest alphabet
+            </label>
+          </div>
+          <pre>{JSON.stringify(filterResponse(), null, 2)}</pre>
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default App;
